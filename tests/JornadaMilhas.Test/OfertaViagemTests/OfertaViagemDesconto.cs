@@ -1,6 +1,6 @@
 ﻿using JornadaMilhasV1.Modelos;
 
-namespace JornadaMilhas.Test;
+namespace JornadaMilhas.Test.OfertaViagemTests;
 
 public class OfertaViagemDesconto
 {
@@ -18,7 +18,7 @@ public class OfertaViagemDesconto
 
         Assert.Equal(precoComDesconto, oferta.Preco);
     }
-    
+
     [Theory]
     [InlineData(120, 30)]
     [InlineData(100, 30)]

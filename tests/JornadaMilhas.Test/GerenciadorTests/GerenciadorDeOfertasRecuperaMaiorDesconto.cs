@@ -2,7 +2,7 @@
 using JornadaMilhasV1.Gerencidor;
 using JornadaMilhasV1.Modelos;
 
-namespace JornadaMilhas.Test;
+namespace JornadaMilhas.Test.Gerenciador;
 
 public class GerenciadorDeOfertasRecuperaMaiorDesconto
 {
@@ -17,7 +17,7 @@ public class GerenciadorDeOfertasRecuperaMaiorDesconto
 
         Assert.Null(oferta);
     }
-    
+
     [Fact]
     public void RetornaOfertaEspecificaQuandoDestinoSaoPauloEDesconto40()
     {
@@ -44,7 +44,7 @@ public class GerenciadorDeOfertasRecuperaMaiorDesconto
             Desconto = 40,
             Ativa = true
         };
-        
+
         var ofertaInativa = new OfertaViagem(rota, fakerPeriodo, 70)
         {
             Desconto = 40,

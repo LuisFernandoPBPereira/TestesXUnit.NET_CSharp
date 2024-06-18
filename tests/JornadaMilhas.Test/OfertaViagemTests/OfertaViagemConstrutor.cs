@@ -1,6 +1,6 @@
 using JornadaMilhasV1.Modelos;
 
-namespace JornadaMilhas.Test;
+namespace JornadaMilhas.Test.OfertaViagemTests;
 
 public class OfertaViagemConstrutor
 {
@@ -12,12 +12,12 @@ public class OfertaViagemConstrutor
     {
         Rota rota = new Rota(origem, destino);
         Periodo periodo = new Periodo(DateTime.Parse(dataIda), DateTime.Parse(dataVolta));
-        
+
         OfertaViagem oferta = new OfertaViagem(rota, periodo, preco);
 
         Assert.Equal(validacao, oferta.EhValido);
     }
-    
+
     [Fact]
     public void RetornaMensagemDeErroQuandoOfertaComRotaNula()
     {
