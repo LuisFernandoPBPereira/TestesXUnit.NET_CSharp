@@ -45,10 +45,12 @@ public class MusicaConstrutor
         Assert.Null(musica.AnoLancamento);
     }
 
-    [Fact]
-    public void RetornaArtistaDesconhecidoQuandoVazioOuNulo()
+    [Theory]
+    [InlineData("")]
+    [InlineData(null)]
+    public void RetornaArtistaDesconhecidoQuandoVazioOuNulo(string artista)
     {
-        Musica musica = new Musica("The Way I Are") { Artista = "" };
+        Musica musica = new Musica("The Way I Are") { Artista = artista };
 
         Assert.Contains("Artista Desconhecido", musica.Artista);
     }
