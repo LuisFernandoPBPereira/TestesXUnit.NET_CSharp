@@ -2,6 +2,9 @@
 
 public class Musica
 {
+    private string anoLancamento;
+    private string? artista;
+
     public Musica(string nome)
     {
         Nome = nome;
@@ -9,7 +12,32 @@ public class Musica
 
     public string Nome { get; set; }
     public int Id { get; set; }
-    public string? Artista { get; set; }
+    public string? Artista 
+    { 
+        get => artista; 
+        set
+        {
+            artista = value;
+
+            if(artista is null || artista == string.Empty)
+            {
+                artista = "Artista Desconhecido";
+            }
+        } 
+    }
+    public string AnoLancamento 
+    { 
+        get => anoLancamento; 
+        set
+        {
+            anoLancamento = value;
+            
+            if(int.Parse(anoLancamento) <= 0)
+            {
+                anoLancamento = null;
+            }
+        } 
+    }
 
     public void ExibirFichaTecnica()
     {

@@ -36,4 +36,20 @@ public class MusicaConstrutor
 
         Assert.Contains($"Id: {idMusica} Nome: {nomeMusica}", musica.ToString());
     }
+
+    [Fact]
+    public void RetornaNuloQuandoAnoDaMusicaForNegativoOuMenorQueZero()
+    {
+        Musica musica = new Musica("Taste") { AnoLancamento = "0" };
+
+        Assert.Null(musica.AnoLancamento);
+    }
+
+    [Fact]
+    public void RetornaArtistaDesconhecidoQuandoVazioOuNulo()
+    {
+        Musica musica = new Musica("The Way I Are") { Artista = "" };
+
+        Assert.Contains("Artista Desconhecido", musica.Artista);
+    }
 }
