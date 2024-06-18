@@ -1,4 +1,5 @@
-﻿using JornadaMilhas.ListaDeExercicios;
+﻿using Bogus;
+using JornadaMilhas.ListaDeExercicios;
 
 namespace JornadaMilhas.Test.TestesListaDeExercicios;
 
@@ -35,6 +36,18 @@ public class MusicaConstrutor
         musica.Id = idMusica;
 
         Assert.Contains($"Id: {idMusica} Nome: {nomeMusica}", musica.ToString());
+    }
+
+    [Fact]
+    public void RetornaStringDoMetodoToStringQuandoMusicaInicializadaEMetodoChamadoComBogus()
+    {
+        var fakerMusica = new Faker<Musica>()
+            .RuleFor(m => m.Id, f => f.Random.Int())
+            .RuleFor(m => m.Nome, f => f.Name.FirstName());
+
+        Musica musica = fakerMusica.Generate();
+
+        Assert.Contains($"Id: {musica.Id} Nome: {musica.Nome}", musica.ToString());
     }
 
     [Fact]

@@ -5,6 +5,10 @@ public class Musica
     private string anoLancamento;
     private string? artista;
 
+    public Musica()
+    {
+        
+    }
     public Musica(string nome)
     {
         Nome = nome;
